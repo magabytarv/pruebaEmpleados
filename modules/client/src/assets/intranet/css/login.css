@@ -1,0 +1,64 @@
+body {
+    background-color: #0089D4;
+    padding-top: 40px;
+    background: #000 url('../../../assets/intranet/iconos/bg.png') no-repeat center center fixed;
+    background-size: cover;
+}
+.panel-default {
+/*    opacity: 0.9;*/
+/*    margin-top: 80px;*/
+    position: relative;
+    padding: 12px 16px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.input-group-addon {
+    background-color: rgb(50, 118, 177);
+    border-color: rgb(40, 94, 142);
+    color: rgb(255, 255, 255);
+}
+.form-signup input[type="text"],
+.form-signup input[type="password"] {
+    border: 1px solid rgb(50, 118, 177);
+}
+.or-box
+{
+    position: relative;
+    border-top: 1px solid #dfdfdf;
+    padding-top: 20px;
+    margin-top:20px;
+/*    min-width: 320px;*/
+}
+.or
+{
+    color: #666666;
+    background-color: #ffffff;
+    position: absolute;
+    text-align: center;
+    top: -8px;
+    width: 40px;
+    left: 144px;
+}
+
+.mws-login-lock{
+    background: #fff;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    color: #337AB7;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.question {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 14px;
+}

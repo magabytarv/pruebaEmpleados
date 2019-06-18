@@ -1,0 +1,160 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary" align="center">
+                <div class="panel-heading">MODULO EMPLEADOS</div>
+                <div class="panel panel-default">
+                    <h2>CREAR NUEVO EMPLEADO</h2>
+                    <div>
+                        <ul class="nav nav-tabs">
+                            <li><a ng-click="tabDatos(1)">Datos Personales</a></li>
+                            <li><a ng-click="tabDatos(2)">Datos Laborales</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div ng-if="tabDatosPersonales == 'active'" id="datos_personales" class="tab-pane fade in active">
+                                <br><br>
+                                <h1>Datos Personales</h1>
+                                <br><br>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="nombres">Nombres:</label>
+                                                    <input type="text" class="form-control input-sm" id="nombres" ng-model='nombres_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="apellidos">Apellidos:</label>
+                                                    <input type="text" class="form-control input-sm" id="apellidos" ng-model='apellidos_empleado'>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="cedula">Cédula:</label>
+                                                    <input type="text" class="form-control input-sm" id="cedula" ng-model='cedula_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="provincia_empleado">Provincia:</label><br>
+                                                    <select class="form-control input-sm" id="provincia_empleado" ng-model='provincia_empleado' name="provincia_empleado" chosen data-placeholder="Seleccione una opción" ng-options="provincia.nombre_provincia for provincia in provincias">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='col-md-6'>
+
+                                                <div class="form-group">
+                                                    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+                                                    <input type="date" class="form-control input-sm" id="fecha_nacimiento" ng-model='fecha_nacimiento_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="email">Email:</label>
+                                                    <input type="text" class="form-control input-sm" id="email" ng-model='email_empleado'>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class='col-sm-12' colspan="2">
+                                                <div class="form-group">
+                                                    <label for="observacion_personal">Observacion:</label>
+                                                    <textarea class="form-control input-sm" rows="3" id="observacion_personal" ng-model='observacion_personal'></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" ng-click='continuar();'></a>Continuar</button>
+                                    <button class="btn btn-warning" ng-click='reporte();'>Reporte</button>
+                                    <button class="btn btn-danger" ng-click='salir();'>Salir</button>
+                                </div>
+                                <br><br>
+                            </div>
+                            <div ng-if="tabDatosLaborales == 'active'" id="datos_laborales" class="tab-pane fade in active">
+                                <br><br>
+                                <h1>Datos Laborales</h1>
+                                <br><br>
+                                <div>
+                                    <table>
+                                        <tr>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="fecha_ingreso_empleado">Fecha de Ingreso:</label>
+                                                    <input type="date" class="form-control input-sm" id="fecha_ingreso" ng-model='fecha_ingreso_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="cargo">Cargo:</label>
+                                                    <input type="text" class="form-control input-sm" id="cargo" ng-model='cargo_empleado'>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="departamento">Departamento:</label>
+                                                    <input type="text" class="form-control input-sm" id="departameno" ng-model='departamento_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="provincia_empleado_laboral">Provincia:</label><br>
+                                                    <select class="form-control input-sm" id="provincia_empleado_laboral" ng-model='provincia_empleado_laboral' name="provincia_empleado_laboral" chosen data-placeholder="Seleccione una opción" ng-options="provincia.nombre_provincia for provincia in provincias">
+                                                            <option value=""></option>
+                                                        </select>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="sueldo">Sueldo:</label>
+                                                    <input type="number" class="form-control input-sm" id="sueldo" ng-model='sueldo_empleado'>
+                                                </div>
+                                            </td>
+                                            <td class='col-md-6'>
+                                                <div class="form-group">
+                                                    <label for="jornada_parcial">Jornada Parcial:</label>
+                                                    <label class="radio-inline"><input type="radio" name="jornada_parcial_si" checked ng-model='jornada_parcial_si'>Si</label>
+                                                    <label class="radio-inline"><input type="radio" name="jornada_parcial_no" ng-model='jornada_parcial_no'>No</label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class='col-sm-12' colspan="2">
+                                                <div class="form-group">
+                                                    <label for="observacion_laboral">Observacion:</label>
+                                                    <textarea class="form-control input-sm" rows="3" id="observacion_laboral" ng-model='observacion_laboral'></textarea>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div>
+                                    <button class="btn btn-success" ng-click='guardar();'></a>Guardar</button>
+                                    <button class="btn btn-warning" ng-click='reporte();'>Reporte</button>
+                                    <button class="btn btn-danger" ng-click='salir();'>Salir</button>
+                                </div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

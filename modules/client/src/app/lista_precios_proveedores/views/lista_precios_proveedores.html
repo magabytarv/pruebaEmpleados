@@ -1,0 +1,117 @@
+<style type="text/css">
+    .chosen-container{
+        width: 100% !important;
+        font-size: 12px !important;
+    }
+
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+        padding: 5px 10px;
+        font-size: 12px !important;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+
+    .panel-heading-table {
+        background-color: #f5f5f5 !important;
+        border-color: #ddd !important;
+    }
+
+    .font-incon-20 {
+        font-size: 20px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <form id="lista_precios_proveedor" name="lista_precios_proveedor" role="form" validate-form="buscar_lista()" novalidate>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Lista precios proveedores</div>
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <div class="col-sm-6">
+                                    <label class="col-sm-3"> <span class="mensaje_error">*</span> Proveedor:</label>
+                                    <div class="to-validate col-sm-7">
+                                        <select id="proveedor_buscar" name="proveedor_buscar" chosen ng-model="data_buscar_lista.codigo_proveedor" data-placeholder="Seleccione una opción" class="col-sm-3 input-sm" ng-options="proveedor.codigo_proveedor as proveedor.proveedor for proveedor in proveedores" ng-change="limpiar_productos()">
+                                            <option value=""></option>
+                                        </select>
+                                        <input validation type="hidden" id="proveedor_buscar" name="proveedor_buscar" ng-model="data_buscar_lista.codigo_proveedor" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6 text-right">
+                                    <div class="to-validate">
+                                        <button type="button" class="btn btn-success input-sm" data-toggle="modal" data-target="#productos_tmp" ng-click="cargar_archivo_proveedor()">
+                                            <i class="fa fa-file-excel-o"></i> Cargar Lista De Productos
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <button class="btn btn-primary btn-sm">Buscar Lista De Precios</button>
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr>
+
+                        <div class="row" ng-if="productos.length > 0">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading panel-heading-table">
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-inverse btn-sm" ng-click="generar_excel()"> <i class="fa fa-file-excel-o font-incon-20"></i> </button>
+                                            <button type="button" class="btn btn-inverse btn-sm"  ng-click="generar_pdf()"> <i class="fa fa-file-pdf-o font-incon-20"></i> </button>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Código Producto</th>
+                                                <th class="text-center">Descripción</th>
+                                                <th class="text-center">Precio Unitario</th>
+                                                <th class="text-center">Moneda</th>
+                                                <th class="text-center">Fecha Carga</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="(key_producto, producto) in productos">
+                                                <td> {{ producto.codigo_producto }} </td>
+                                                <td> {{ producto.descripcion }} </td>
+                                                <td class="text-right"> {{ producto.precio_unitario }} </td>
+                                                <td> {{ producto.moneda }} </td>
+                                                <td> {{ producto.fecha_carga }} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div ng-include="url_modal_productos_tmp"></div>

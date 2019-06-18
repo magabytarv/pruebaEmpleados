@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-sm-8 col-md-10 col-lg-12">
+            <div class="panel panel-primary" align="center">
+                <div class="panel-heading">MODULO EMPLEADOS</div>
+                <div class="panel-body">
+                    <h2>Reporte de Empleados</h2>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <br><br>
+                            <div class="row">
+                                <table class="table table-striped" align='center'>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3">GRUPO PROVEDATOS</td>
+                                            <td colspan="3">FECHA DE CONSULTA</td>
+                                            <td colspan="3">FECHA HOY</td>
+                                            <td colspan="3">USUARIO</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="12"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br><br>
+                            <div class="row">
+                                <table class="table table-striped" align='center'>
+                                    <thead>
+                                        <tr>
+                                            <th align="center">Nombre</th>
+                                            <th align="center">Cedula</th>
+                                            <th align="center">Provincia</th>
+                                            <th align="center">Fecha de Nacimiento</th>
+                                            <th align="center">Observaciones (Personal)</th>
+                                            <th align="center">Fecha de Ingreso</th>
+                                            <th align="center">Cargo</th>
+                                            <th align="center">Departamento</th>
+                                            <th align="center">Provincia Laboral</th>
+                                            <th align="center">Sueldo</th>
+                                            <th align="center">Jornada Parcial</th>
+                                            <th align="center">Observaciones (Laboral)</th>
+                                            <th align="center">Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(index,empleado) in empleados">
+                                            <td>{{empleado.Nombres}} {{empleado.Apellidos}}</td>
+                                            <td>{{empleado.Cedula}}</td>
+                                            <td>{{empleado.Provincia}}</td>
+                                            <td>{{empleado.FechaNacimiento}}</td>
+                                            <td>{{empleado.Observaciones}}</td>
+                                            <td>{{empleado.FechaIngreso}}</td>
+                                            <td>{{empleado.Cargo}}</td>
+                                            <td>{{empleado.Departamento}}</td>
+                                            <td>{{empleado.ProvinciaLaboral}}</td>
+                                            <td align="right">{{empleado.Sueldo}}</td>
+                                            <td>{{empleado.JornadaParcial}}</td>
+                                            <td>{{empleado.ObservacionesLaborar}}</td>
+                                            <td>{{empleado.Estado}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <button class="btn btn-danger" ng-click='salir();'>Salir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

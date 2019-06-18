@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-sm-8 col-md-10 col-lg-12">
+            <div class="panel panel-primary" align="center">
+                <div class="panel-heading">MODULO EMPLEADOS</div>
+                <div class="panel-body">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row" align="center">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" name="nombre" id="nombre" ng-model='nombre_buscar'>
+                                <label for="codigo">Código Empleado</label>
+                                <input type="text" name="codigo" id="codigo" ng-model='codigo_buscar'>
+                                <button class="btn btn-success" ng-click='buscar();'>Buscar</button>
+                            </div>
+                            <br><br>
+                            <div class="row">
+                                <table class="table table-striped" align='center'>
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Codigo</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="(index,empleado) in empleados">
+                                            <td>{{empleado.Nombres}} {{empleado.Apellidos}}</td>
+                                            <td>{{empleado.Cedula}}</td>
+                                            <td>{{empleado.Estado}}</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td align='center' colspan="3">Unicamente se están presentando los 20 primeros registros, si no encuentra la información deseada use los filtros de la parte superior</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <div>
+                                    <button class="btn btn-success" ng-click='crear();'></a>Crear</button>
+                                    <button class="btn btn-warning" ng-click='reporte();'>Reporte</button>
+                                    <button class="btn btn-danger" ng-click='salir();'>Salir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
